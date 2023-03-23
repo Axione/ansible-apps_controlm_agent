@@ -1,0 +1,5 @@
+---
+- name: "restart controlm_agent"
+  ansible.builtin.service:
+    name: "controlm_agent"
+    state: "restarted"

@@ -1,0 +1,22 @@
+---
+# Binary install
+controlm_agent_force_install: false
+controlm_agent_install_method: url # or file
+controlm_agent_install_url: ""
+controlm_agent_install_path: ""
+controlm_agent_version: "9.0.19.200"
+controlm_agent_bin_name: "DRKAI.{{ controlm_agent_version }}_Linux-x86_64.tar.Z"
+
+controlm_agent_install_dir: "/opt/controlM_agent"
+controlm_agent_user: "ctmagt"
+controlm_agent_group: "ctmagt"
+controlm_agent_temp_path: "/tmp"
+
+# Config options
+controlm_agent_tracker_port: '7035'
+controlm_agent_a2s_port: '7005'
+controlm_agent_s2a_port: '7006'
+controlm_agent_primary_server: "servername.exemple.fr"
+controlm_agent_auth_server: "servername.exemple.fr"
+controlm_agent_tcp_timeout: "60"
+controlm_agent_svc_start: true

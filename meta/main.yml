@@ -1,0 +1,34 @@
+---
+galaxy_info:
+  author: lotusnoir
+  role_name: apps_controlm_agent
+  description: "Install anc configure BMC control-M agent in order to launch cron tasks"
+  license: "Apache License, Version 2.0"
+  min_ansible_version: 2.8
+
+  platforms:
+    - name: "Ubuntu"
+      versions:
+        - "focal"
+        - "bionic"
+        - "jammy"
+    - name: "Debian"
+      versions:
+        - "buster"
+        - "bullseye"
+    - name: "Rocky"
+      versions:
+        - "8"
+    - name: "OracleLinux"
+      versions:
+        - "8"
+        - "9"
+
+  galaxy_tags:
+    - crontab
+    - schedule
+    - bmc
+    - controlm
+    - agent
+
+dependencies: []

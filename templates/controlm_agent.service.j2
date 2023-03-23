@@ -1,0 +1,18 @@
+{{ ansible_managed | comment }}
+
+[Unit]
+Description=Control-M/Agent
+After=network-online.target
+
+[Service]
+User={{ controlm_agent_user }}
+ExecStart={{ controlm_agent_install_dir }}/ctm/scripts/rc.agent_user start
+ExecStop={{ controlm_agent_install_dir }}/ctm/scripts/rc.agent_user stop
+Type=forking
+Restart=on-failure
+RestartSec=5s
+StartLimitBurst=3
+RemainAfterExit=yes
+
+[Install]
+WantedBy=multi-user.target
