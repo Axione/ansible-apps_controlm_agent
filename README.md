@@ -1,13 +1,13 @@
 # ansible-apps_controlm_agent
 
-## Description
-
 [![Galaxy Role](https://img.shields.io/badge/galaxy-apps_controlm_agent-purple?style=flat)](https://galaxy.ansible.com/lotusnoir/apps_controlm_agent)
 [![Version](https://img.shields.io/github/release/lotusnoir/ansible-apps_controlm_agent.svg)](https://github.com/lotusnoir/ansible-apps_controlm_agent/releases/latest)
 [![GitHub repo size](https://img.shields.io/github/repo-size/lotusnoir/ansible-apps_controlm_agent?color=orange&style=flat)](https://galaxy.ansible.com/lotusnoir/apps_controlm_agent)
 [![downloads](https://img.shields.io/ansible/role/d/)](https://galaxy.ansible.com/lotusnoir/apps_controlm_agent)
 [![Ansible Quality Score](https://img.shields.io/ansible/quality/)](https://galaxy.ansible.com/lotusnoir/apps_controlm_agent)
 [![License](https://img.shields.io/badge/license-Apache--2.0-brightgreen?style=flat)](https://opensource.org/licenses/Apache-2.0)
+
+## Description
 
 Install anc configure BMC control-M agent in order to launch cron tasks
 ## Requirements
