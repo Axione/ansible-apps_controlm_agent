@@ -31,7 +31,7 @@
 
     - name: "Retrieve install package from path"
       ansible.builtin.copy:
-        src: "{{ controlm_agent_install_path }}{% if controlm_agent_install_path|length>0 %}/{% endif %}{{ controlm_agent_bin_name }}"
+        src: "{{ controlm_agent_install_path }}{% if controlm_agent_install_path | length > 0 %}/{% endif %}{{ controlm_agent_bin_name }}"
         dest: "{{ controlm_agent_temp_path }}"
         mode: '0644'
         force: false
@@ -62,7 +62,6 @@
         remote_src: true
       when: dl.changed
 
-
 - name: "Config tasks"
   when:
     - controlm_agent_install_path is defined or controlm_agent_install_url is defined
@@ -79,9 +78,10 @@
     - name: "Installation..."
       ansible.builtin.command: "/bin/bash setup.sh -silent config.xml"
       become_user: "{{ controlm_agent_user }}"
+      become: true
       args:
         chdir: "{{ controlm_agent_install_dir }}"
-      ignore_errors: true
+      failed_when: false
       changed_when: false
       when: dl.changed
 
