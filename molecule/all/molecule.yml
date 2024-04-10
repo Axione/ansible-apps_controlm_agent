@@ -14,17 +14,17 @@ scenario:
     #- verify
     - destroy
 platforms:
-  - name: apps-controlm-agent-ubuntu18
+  - name: apps-controlm-agent-ubuntu20
     pre_build_image: true
-    image: lotusnoir/ansible_molecule_test_images:ubuntu18
+    image: lotusnoir/ansible_molecule_test_images:ubuntu20
     docker_host: "${DOCKER_HOST:-unix://var/run/docker.sock}"
     privileged: true
     capabilities: ['NET_ADMIN']
     volumes:
       - /sys/fs/cgroup:/sys/fs/cgroup:rw
-  - name: apps-controlm-agent-ubuntu20
+  - name: apps-controlm-agent-ubuntu18
     pre_build_image: true
-    image: lotusnoir/ansible_molecule_test_images:ubuntu20
+    image: lotusnoir/ansible_molecule_test_images:ubuntu18
     docker_host: "${DOCKER_HOST:-unix://var/run/docker.sock}"
     privileged: true
     capabilities: ['NET_ADMIN']
@@ -75,18 +75,18 @@ platforms:
       - /sys/fs/cgroup:/sys/fs/cgroup:rw
     groups:
       - python3
-  - name: apps-controlm-agent-oraclelinux9
+  - name: apps-controlm-agent-oraclelinux8
     pre_build_image: true
-    image: lotusnoir/ansible_molecule_test_images:oraclelinux9
+    image: lotusnoir/ansible_molecule_test_images:oraclelinux8
     docker_host: "${DOCKER_HOST:-unix://var/run/docker.sock}"
     privileged: true
     volumes:
       - /sys/fs/cgroup:/sys/fs/cgroup:rw
     groups:
       - python3
-  - name: apps-controlm-agent-oraclelinux8
+  - name: apps-controlm-agent-oraclelinux9
     pre_build_image: true
-    image: lotusnoir/ansible_molecule_test_images:oraclelinux8
+    image: lotusnoir/ansible_molecule_test_images:oraclelinux9
     docker_host: "${DOCKER_HOST:-unix://var/run/docker.sock}"
     privileged: true
     volumes:
