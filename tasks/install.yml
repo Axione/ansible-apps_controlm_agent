@@ -59,6 +59,7 @@
         dest: "{{ controlm_agent_install_dir }}"
         owner: "{{ controlm_agent_user }}"
         group: "{{ controlm_agent_group }}"
+        mode: '0744'
         remote_src: true
       when: dl.changed
 
