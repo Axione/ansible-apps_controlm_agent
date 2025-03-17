@@ -1,10 +1,10 @@
 ---
-- name: Delete controlM_agent directory
+- name: "Delete controlM_agent directory"
 	ansible.builtin.file:
 	path: /opt/controlM_agent
 	state: absent
 
-- name: Disable	controlm_agent.service
+- name: "Disable controlm_agent.service"
 	 ansible.builtin.systemd_service::
 		name: controlm_agent
 		enabled: no
