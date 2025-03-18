@@ -10,6 +10,7 @@
     enabled: no
     state: stopped
     daemon_reload: yes
+  when: ansible_facts['services']['controlm_agent.service']['status']|default('not-found') != 'not-found'
 
 - name: "Check for controlm agent binary"
   ansible.builtin.stat:
