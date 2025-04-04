@@ -22,6 +22,7 @@
 ## Description
 
 Install anc configure BMC control-M agent in order to launch cron tasks
+
 ## Requirements
 
 none
@@ -32,12 +33,11 @@ See [variables](/defaults/main.yml) for more details.
 
 As the package cannot be downloaded by a public link, you need to provide a path or url in order to install it, with default variables, this role dont change anything on the system. You need to set the config variables like in the exemple in order to start configuration.
 
-
 vars:
-  controlm_agent_install_method: url # or file
-  controlm_agent_install_url: "http://downloadpackage/xxxxxxxxx"
-  controlm_agent_primary_server: "servername.exemple.fr"
-  controlm_agent_auth_server: "servername.exemple.fr"
+controlm_agent_install_method: url # or file
+controlm_agent_install_url: "http://downloadpackage/xxxxxxxxx"
+controlm_agent_primary_server: "servername.exemple.fr"
+controlm_agent_auth_server: "servername.exemple.fr"
 
 ## Examples
 
@@ -48,7 +48,6 @@ vars:
           gather_facts: true
           roles:
             - role: ansible-apps_controlm_agent
-
 
 ## License
 
