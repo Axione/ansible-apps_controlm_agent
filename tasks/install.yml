@@ -29,7 +29,7 @@
         expires: -1
       when: controlm_agent_user != "root"
 
-    -name: "Set env variable"
+    - name: "Set env variable"
       ansible.builtin.lineinfile:
         path: "{{ controlm_agent_user }}/.bashrc"
         line: "export BMC_INST_JAVA_HOME=/opt/java/jdk-11.0.16/"
