@@ -1,17 +1,4 @@
 ---
-- name: "Delete controlM_agent directory"
-  ansible.builtin.file:
-    path: /opt/controlM_agent
-    state: absent
-
-- name: "Disable controlm_agent.service"
-  ansible.builtin.systemd_service:
-    name: controlm_agent
-    enabled: no
-    state: stopped
-    daemon_reload: yes
-  when: ansible_facts['services']['controlm_agent.service']['status']|default('not-found') != 'not-found'
-
 - name: "Check for controlm agent binary"
   ansible.builtin.stat:
     path: "{{ controlm_agent_install_dir }}/config.xml"
@@ -41,6 +28,11 @@
         shell: /bin/bash
         expires: -1
       when: controlm_agent_user != "root"
+
+    -name: "Set env variable"
+      ansible.builtin.lineinfile:
+        path: "{{ controlm_agent_user }}/.bashrc"
+        line: "export BMC_INST_JAVA_HOME=/opt/java/jdk-11.0.16/"
 
     - name: "Retrieve install package from path"
       ansible.builtin.copy:
@@ -90,7 +82,6 @@
         mode: '0755'
 
     - name: "Installation..."
-      ansible.builtin.command: "export BMC_INST_JAVA_HOME=/opt/java/jdk-11.0.16/"
       ansible.builtin.command: "/bin/bash setup.sh -silent config.xml"
       become_user: "{{ controlm_agent_user }}"
       become: true
