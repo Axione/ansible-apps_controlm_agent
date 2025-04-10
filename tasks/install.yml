@@ -85,12 +85,17 @@
       ansible.builtin.command: "/bin/bash setup.sh -silent config.xml"
       become_user: "{{ controlm_agent_user }}"
       become: true
+      register: command_output
       args:
         chdir: "{{ controlm_agent_install_dir }}"
       failed_when: false
       changed_when: false
       when: dl.changed
-
+      
+    - name: "Show command output"
+      ansible.builtin.debug:
+        var: command_output
+        
     - name: "Create systemd"
       ansible.builtin.template:
         src: 'controlm_agent.service.j2'
