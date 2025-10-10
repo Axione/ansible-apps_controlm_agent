@@ -5,7 +5,7 @@
   changed_when: false
   register: controlm_install
 
-- name: "Install tasks"
+- name: "Check  tasks"
   when: not controlm_install.stat.exists or controlm_agent_force_install|bool
   block:
     - name: "Delete controlM_agent directory"
@@ -84,7 +84,7 @@
         remote_src: true
       when: dl.changed
 
-- name: "Config tasks"
+- name: "Install tasks"
   when:
     - controlm_agent_install_path is defined or controlm_agent_install_url is defined
     - controlm_agent_install_path | length > 0 or controlm_agent_install_url | length > 0
