@@ -1,5 +1,5 @@
 <AutomatedInstallation langpack="eng">
-    <target.product>Control-M/Agent {{ controlm_agent_version }}</target.product>
+    <target.product>Control-M  Agent</target.product>
     <agent.parameters>
         <entry key="ctm_agent.Tracker.Event.Port" value="{{ controlm_agent_tracker_port }}"/>
         <entry key="field.Server.To.Agent.Port.Number" value="{{ controlm_agent_s2a_port }}"/>
@@ -7,8 +7,6 @@
         <entry key="field.Primary.Controlm.Server.Host" value="{{ controlm_agent_primary_server }}"/>
         <entry key="field.Authorized.Controlm.Server.Host" value="{{ controlm_agent_auth_server }}"/>
         <entry key="ctm_agent.Tcp_ip.Timeout" value="{{ controlm_agent_tcp_timeout }}"/>
-        <entry key="use.embedded.JRE" value="true"/>
-        <entry key="use.alternative.JRE" value="false"/>
         <entry key="ctm_agent.Force.Upgrade" value=""/>
         <entry key="Ignore.Disabling.Agent.Failure" value="false"/>
     </agent.parameters>
