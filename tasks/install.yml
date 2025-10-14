@@ -8,23 +8,7 @@
 - name: "Check  tasks"
   when: not controlm_install.stat.exists or controlm_agent_force_install|bool
   block:
-    - name: "Delete controlM_agent directory"
-      ansible.builtin.file:
-        path: /opt/controlM_agent
-        state: absent
-      when: controlm_agent_force_install|bool
-    
-    - name: "Disable controlm_agent.service"
-      ansible.builtin.systemd_service:
-        name: controlm_agent
-        enabled: no
-        state: stopped
-        daemon_reload: yes
-      when: 
-        - ansible_facts['services']['controlm_agent.service']['status']|default('not-found') != 'not-found'
-        - controlm_agent_force_install|bool
-
-    - name: "Install requierements"
+   - name: "Install requierements"
       ansible.builtin.package:
         name: "tar"
         state: present
