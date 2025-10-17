@@ -8,7 +8,7 @@
 - name: "Check  tasks"
   when: not controlm_install.stat.exists or controlm_agent_force_install|bool
   block:
-   - name: "Install requierements"
+    - name: "Install requierements"
       ansible.builtin.package:
         name: "tar"
         state: present
