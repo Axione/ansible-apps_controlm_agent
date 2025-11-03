@@ -32,7 +32,7 @@
     - name: "Set env variable"
       ansible.builtin.lineinfile:
         path: "{{ controlm_agent_install_dir }}/.bashrc"
-        line: "export BMC_INST_JAVA_HOME=/opt/java/jdk-11.0.16/"
+        line: "export BMC_INST_JAVA_HOME=/opt/java/jdk-11.0.26/"
 
     - name: "Retrieve install package from path"
       ansible.builtin.copy:
