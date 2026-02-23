@@ -4,7 +4,7 @@ controlm_agent_force_install: false
 controlm_agent_install_method: url
 controlm_agent_install_url: ""
 controlm_agent_install_path: ""
-controlm_agent_version: "9.0.21.200"
+controlm_agent_version: "9.0.21.300"
 controlm_agent_bin_name: "DRKAI.{{ controlm_agent_version }}_Linux-x86_64.tar.Z"
 
 controlm_agent_install_dir: "/opt/controlM_agent"
