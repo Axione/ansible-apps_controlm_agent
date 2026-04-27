@@ -56,7 +56,7 @@
     - name: "Enable and Start controlm_agent.service"
       ansible.builtin.service:
         name: controlm_agent
-        state: started
+        state: stopped
         enabled: true
         daemon_reload: true
       when: controlm_agent_svc_start|bool
