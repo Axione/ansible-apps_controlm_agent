@@ -5,7 +5,7 @@ controlm_agent_install_method: url
 controlm_agent_install_url: ""
 controlm_agent_install_path: ""
 controlm_agent_version: "9.0.21.300"
-controlm_agent_bin_name: "DRFZ4.{{ controlm_agent_version }}_Linux-x86_64.tar.Z"
+controlm_agent_bin_name: "DRFZ4.{{ controlm_agent_version }}_Linux-x86_64.tar"
 
 controlm_agent_install_dir: "/opt/controlM_agent"
 controlm_agent_user: "ctmagt"
