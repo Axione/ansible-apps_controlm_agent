@@ -34,6 +34,17 @@
         path: "{{ controlm_agent_install_dir }}/.bashrc"
         line: "export BMC_INST_JAVA_HOME=/opt/java/jdk-11.0.26/"
 
+    - name : "Set right on /etc/issue"
+      ansible.builtin.file:
+        path: /etc/issue
+        mode: '0644'
+
+    - name: "install psmisc"
+      ansible.builtin.apt:
+        name: psmisc
+        state: present
+        update_cache: yes
+        
     - name: "Retrieve install package from path"
       ansible.builtin.copy:
         src: "{{ controlm_agent_install_path }}{% if controlm_agent_install_path | length > 0 %}/{% endif %}{{ controlm_agent_bin_name }}"
@@ -84,7 +95,7 @@
     - name: "Installation..."
       environment:
         BMC_INST_JAVA_HOME: /opt/java/jdk-11.0.26/
-      ansible.builtin.command: "/bin/bash setup.sh -silent config.xml"
+      ansible.builtin.command: "/bin/bash ./setup.sh -silent config.xml"
       become_user: "{{ controlm_agent_user }}"
       become: true
       register: command_output
