@@ -39,12 +39,20 @@
         path: /etc/issue
         mode: '0644'
 
-    - name: "install psmisc"
+    - name: "install psmisc sur Debian"
       ansible.builtin.apt:
         name: psmisc
         state: present
         update_cache: yes
-        
+      when: ansible_facts['os_family'] =="Debian"
+
+    - name: "install psmisc sur RedHat"
+      ansible.builtin.yum:
+        name: psmisc
+        state: present
+        update_cache: yes
+      when: ansible_facts['os_family'] =="RedHat"
+
     - name: "Retrieve install package from path"
       ansible.builtin.copy:
         src: "{{ controlm_agent_install_path }}{% if controlm_agent_install_path | length > 0 %}/{% endif %}{{ controlm_agent_bin_name }}"
