@@ -102,7 +102,7 @@
 
     - name: "Installation..."
       environment:
-        BMC_INST_JAVA_HOME: /opt/java/jdk-11.0.26/
+        BMC_INST_JAVA_HOME: /opt/java/jdk-11.0.31/
       ansible.builtin.command: "/bin/bash ./setup.sh -silent config.xml"
       become_user: "{{ controlm_agent_user }}"
       become: true
