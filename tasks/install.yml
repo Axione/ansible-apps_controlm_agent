@@ -12,6 +12,7 @@
       ansible.builtin.package:
         name: "tar"
         state: present
+        
     - name: "Create controlM_agent directory"
       ansible.builtin.file:
         path: "{{ controlm_agent_install_dir }}"
