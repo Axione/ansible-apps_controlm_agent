@@ -81,6 +81,13 @@
       ansible.builtin.command:
         tar -xvf "{{ controlm_agent_temp_path }}/{{ controlm_agent_bin_name }}" -C "{{ controlm_agent_install_dir }}"
       
+    - name: "Put 0755 rights"
+      ansible.builtin.file:
+        path: "{{ jdk11_install_dir }}"
+        mode: '0755'
+        recurse: yes
+        state: directory
+        
 - name: "Install tasks"
   when:
     - controlm_agent_install_path is defined or controlm_agent_install_url is defined
