@@ -112,9 +112,6 @@
       args:
         chdir: "{{ controlm_agent_install_dir }}"
       ignore_errors: true
-      failed_when: false
-      changed_when: false
-      when: dl.changed
       
     - name: "Show command output"
       ansible.builtin.debug:
