@@ -54,7 +54,7 @@
       when: ansible_facts.os_family == "RedHat"
 
     - name: "Tuer tous les process correspondant à ctmag"
-      ansible.builtin.command: pkill -f "ctma"
+      ansible.builtin.command: pkill -f "ctmagt"
       register: resultat_pkill
       failed_when: resultat_pkill.rc not in [0, 1]   # 1 = aucun process trouvé, pas une vraie erreur
       changed_when: resultat_pkill.rc == 0
@@ -123,7 +123,8 @@
       
     - name: "Show command output"
       ansible.builtin.debug:
-        var: command_output     
+        var: command_output
+
     - name: "Create systemd"
       ansible.builtin.template:
         src: 'controlm_agent.service.j2'
@@ -138,3 +139,6 @@
         enabled: true
         daemon_reload: true
       when: controlm_agent_svc_start|bool
+
+    - name: "nottyage sources CTM"
+      ansible.builtin.shell: rm -rf /opt/controlM_agent/Setup_files/*
