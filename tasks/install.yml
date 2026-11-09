@@ -62,6 +62,14 @@
     - name: "suppression dossier ctm"
       ansible.builtin.shell: rm -rf /opt/controlM_agent/*
 
+    - name: "Disable and Stop controlm_agent.service"
+      ansible.builtin.service:
+        name: controlm_agent
+        state: stopped
+        enabled: false
+        daemon_reload: true
+      when: controlm_agent_svc_start|bool
+
     - name: "Retrieve install package from path"
       ansible.builtin.copy:
         src: "{{ controlm_agent_install_path }}{% if controlm_agent_install_path | length > 0 %}/{% endif %}{{ controlm_agent_bin_name }}"
@@ -135,7 +143,7 @@
     - name: "Enable and Start controlm_agent.service"
       ansible.builtin.service:
         name: controlm_agent
-        state: stopped
+        state: started
         enabled: true
         daemon_reload: true
       when: controlm_agent_svc_start|bool
